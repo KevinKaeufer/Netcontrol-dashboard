@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetControl Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>NetControl Dashboard</h1>
+        <p>IT-Infrastruktur & System-Monitoring</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Systemübersicht</h2>
+
+           <div class="kpi-grid">
+    <article class="kpi-card">
+        <h3>Gesamt</h3>
+        <p id="total-count">0</p>
+    </article>
+
+    <article class="kpi-card">
+        <h3>Online</h3>
+        <p id="online-count">0</p>
+    </article>
+
+    <article class="kpi-card">
+        <h3>Kritisch</h3>
+        <p id="critical-count">0</p>
+    </article>
+
+    <article class="kpi-card">
+        <h3>Wartung</h3>
+        <p id="maintenance-count">0</p>
+    </article>
+</div>
+        </section>
+
+        <section>
+            <h2>Server-Verwaltung</h2>
+
+            <div class="control-bar">
+
+            <div class="control-group">
+            <label for="search">Server suchen</label>
+            <input 
+            type="text"
+            id="search"
+            placeholder="Name oder IP-Adresse"
+            autocomplete="off"
+            >
+            </div>
+
+            <div class="control-group">
+            <label for="status-filter">Status filtern</label>
+            <select id="status-filter">
+                <option value="all">Alle</option>
+                <option value="online">Online</option>
+                <option value="critical">Kritisch</option>
+                <option value="maintenance">Wartung</option>
+            </select>
+            </div>
+
+            <button type="button" class="add-btn" id="add-btn">Server hinzufügen
+            </button>
+        </section>
+
+        <section>
+        <h2>Server-Knoten</h2>
+
+        <div class="server-grid" id="server-grid"  aria-live="polite">
+        </div>
+    
+    </section>
+
+    <section id="add-server-section" class="hidden">
+
+        <h2>Server hinzufügen</h2>
+
+        <form id="server-form">
+
+                <label for="server-name">Name</label>
+                <input type="text" id="server-name" required>
+                <p id="name-error" class="error-message"></p>
+          
+                <label for="server-ip">IP-Adresse</label>
+                <input type="text" id="server-ip" required>
+                <p id="ip-error" class="error-message"></p>
+     
+                <label for="server-type">Typ</label>
+                <input type="text" id="server-type" required>
+                <p id="type-error" class="error-message"></p>
+
+                <label for ="server-status">Status</label>
+                <select id="server-status" required>
+                    <option value="online">Online</option>
+                    <option value="critical">Kritisch</option>
+                    <option value="maintenance">Wartung</option>
+                </select>
+
+            <button type="submit">Speichern</button>
+        </form>
+    </section>
+</main>
+<script src="app.js" defer></script>
+</body>
+</html>
